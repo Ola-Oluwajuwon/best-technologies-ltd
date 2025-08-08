@@ -12,7 +12,7 @@ export const trainings: TrainingType[] = [
   // Bootcamp Programs
   {
     id: "bootcamp-001",
-    title: "Fullstack Web Development Bootcamp",
+    title: "Software Engineering Bootcamp",
     slug: "bootcamp/fullstack-web-development",
     description:
       "Intensive hands-on training in frontend and backend technologies. Ideal for beginners and career switchers.",
@@ -57,12 +57,12 @@ export const trainings: TrainingType[] = [
   },
   {
     id: "bootcamp-006",
-    title: "Data Analytics Bootcamp",
-    slug: "bootcamp/data-analytics",
+    title: "Data Analysis Bootcamp",
+    slug: "bootcamp/data-analysis",
     description:
-      "Learn data analysis, visualization, and statistical methods. Master tools like Python, R, and SQL to make data-driven decisions.",
+      "Learn data analysis, visualization, and statistical methods. Master tools like Python and SQL to make data-driven decisions.",
     category: "Bootcamp",
-    image: "/bootcamp/data.jpg",
+    image: "/bootcamp/data-analysis.jpg",
   },
   {
     id: "bootcamp-007",

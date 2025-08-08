@@ -23,8 +23,8 @@ export default function SoftwareEngineeringBootcampPage() {
     <div className="bg-white text-[#161a25]">
       <Navbar />
       <BootcampOverlay
-        title="Fullstack Web Development"
-        description="Become a fullstack web developer with our comprehensive bootcamp covering HTML, CSS, JavaScript, React, Node.js, and more"
+        title="Software Engineering"
+        description="Become a software engineer with our comprehensive bootcamp covering HTML, CSS, JavaScript, React, Node.js, and more"
         icon={<FaLaptopCode className="text-white text-base md:text-2xl" />}
         backgroundImage="/bootcamp/software-development.jpg"
       />

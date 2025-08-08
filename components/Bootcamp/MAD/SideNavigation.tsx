@@ -159,7 +159,7 @@ const SideNavigation: React.FC<SideNavigationProps> = ({
               asChild
               className="w-full bg-green-600 hover:bg-green-700 text-white"
             >
-              <Link href="/trainings/curriculum">GET MY SYLLABUS</Link>
+              <Link href="/trainings/register">APPLY NOW</Link>
             </Button>
           </div>
         </div>

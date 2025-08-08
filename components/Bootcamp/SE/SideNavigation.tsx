@@ -11,7 +11,7 @@ interface SideNavigationProps {
 }
 
 const sections = [
-  { id: "fullstack-experience", title: "Full-Stack Development Experience" },
+  { id: "fullstack-experience", title: "Software Engineering Experience" },
   { id: "what-youll-learn", title: "What You'll Learn" },
   { id: "tuition-dates", title: "Tuition & Dates" },
   { id: "projects", title: "Projects" },
@@ -159,7 +159,7 @@ const SideNavigation: React.FC<SideNavigationProps> = ({
               asChild
               className="w-full bg-blue-600 hover:bg-blue-700 text-white"
             >
-              <Link href="/trainings/curriculum">GET MY SYLLABUS</Link>
+              <Link href="/trainings/register">APPLY NOW</Link>
             </Button>
           </div>
         </div>

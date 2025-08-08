@@ -202,6 +202,12 @@ const Footer = () => {
               >
                 Contact
               </Link>
+              <Link
+                href="/partnerwithus"
+                className="block text-gray-300 hover:text-[#a4cd39] transition-colors cursor-pointer"
+              >
+                Partner with Us
+              </Link>
             </div>
           </div>
 

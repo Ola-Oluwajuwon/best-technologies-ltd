@@ -228,7 +228,7 @@ export default function About() {
           <div className="max-w-4xl mx-auto">
             <div className="bg-gradient-to-r from-brand-secondary/20 via-gray-800/80 to-brand-secondary/20 rounded-3xl p-12 border border-brand-primary/20 text-center">
               <h2 className="text-3xl font-bold mb-6 text-white">
-                Let&pos;s Work Together
+                Let&apos;s Work Together
               </h2>
               <p className="text-xl text-gray-300 mb-8">
                 Let&apos;s discuss how we can help transform your business with

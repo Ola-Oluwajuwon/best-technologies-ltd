@@ -23,7 +23,7 @@ export default function DataAnalysisBootcampPage() {
       <Navbar />
       <BootcampOverlay
         title="Data Analysis"
-        description="Transform raw data into actionable insights with our comprehensive 20-week data analysis program. Master Python, SQL, Machine Learning, and business intelligence tools."
+        description="Transform raw data into actionable insights with our comprehensive 26-week data analysis program. Master Python, SQL, Machine Learning, and business intelligence tools."
         icon={<BarChart3 className="text-white text-base md:text-2xl" />}
         backgroundImage="/bootcamp/data-analysis.jpg"
       />

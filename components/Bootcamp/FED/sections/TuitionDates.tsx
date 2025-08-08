@@ -1,6 +1,7 @@
 import React from "react";
-
+import Link from "next/link";
 import { Calendar, Clock } from "lucide-react";
+import { Button } from "@/ui/button";
 
 const TuitionDates: React.FC = () => {
   const upcomingCohorts = [
@@ -207,6 +208,16 @@ const TuitionDates: React.FC = () => {
               </div>
             </div>
           </div>
+        </div>
+
+        {/* Mobile/Tablet CTA Button */}
+        <div className="mt-6 lg:hidden">
+          <Button
+            asChild
+            className="w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 px-6 rounded-lg transition-all duration-300"
+          >
+            <Link href="/trainings/register">APPLY NOW</Link>
+          </Button>
         </div>
 
         {/* <div className="mt-8">

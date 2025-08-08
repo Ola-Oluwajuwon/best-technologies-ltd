@@ -1,7 +1,7 @@
 import React from "react";
 import { Code, Database, Globe, Zap } from "lucide-react";
 
-const FullstackExperience = () => {
+const SoftwareEngineeringExperience = () => {
   const highlights = [
     {
       icon: <Code className="h-8 w-8 text-green-600" />,
@@ -37,7 +37,7 @@ const FullstackExperience = () => {
             lineHeight: "1.3",
           }}
         >
-          Complete Full-Stack Development Experience
+          Complete Software Engineering Experience
         </h2>
         <p
           className="text-gray-700 mb-6 lg:mb-8 leading-relaxed"
@@ -90,7 +90,7 @@ const FullstackExperience = () => {
               lineHeight: "1.4",
             }}
           >
-            Why Choose Full-Stack Development?
+            Why Choose Software Engineering?
           </h3>
           <p
             className="text-gray-700 leading-relaxed"
@@ -99,9 +99,9 @@ const FullstackExperience = () => {
               lineHeight: "1.6",
             }}
           >
-            Full-stack development is one of the most versatile and in-demand
+            Software engineering is one of the most versatile and in-demand
             skills in the tech industry. As companies need developers who can
-            work across the entire technology stack, full-stack developers are
+            work across the entire technology stack, software engineers are
             highly valued for their ability to build complete applications from
             frontend to backend. Our program prepares you for this exciting
             field with hands-on projects and industry-standard technologies.
@@ -112,4 +112,4 @@ const FullstackExperience = () => {
   );
 };
 
-export default FullstackExperience;
+export default SoftwareEngineeringExperience;

@@ -2,7 +2,7 @@
 
 import React, { useState, useEffect } from "react";
 import SideNavigation from "./SideNavigation";
-import FullstackExperience from "./sections/FullstackExperience";
+import SoftwareEngineeringExperience from "./sections/SoftwareEngineeringExperience";
 import WhatYoullLearn from "./sections/WhatYoullLearn";
 import TuitionDates from "./sections/TuitionDates";
 import Projects from "./sections/Projects";
@@ -62,7 +62,7 @@ const ContentSection: React.FC = () => {
           />
         </div>
         <div className="w-full lg:w-3/4 lg:ps-8 xl:ps-16">
-          <FullstackExperience />
+          <SoftwareEngineeringExperience />
           <WhatYoullLearn />
           <TuitionDates />
           <Projects />

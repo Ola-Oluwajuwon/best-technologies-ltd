@@ -32,7 +32,7 @@ To empower businesses and individuals in Africa and beyond with cutting-edge, AI
 
 #### **Bootcamps** (6-12 months intensive programs)
 
-- Fullstack Web Development
+- Software Engineering
 - Frontend Development (React, Vue, Modern JavaScript)
 - Backend Development (Node.js, Python, APIs)
 - UI/UX Design (User research, wireframing, prototyping)

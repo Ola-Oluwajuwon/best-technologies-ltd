@@ -27,7 +27,7 @@ export default function TrainingAboutPage() {
         "Industry-relevant curriculum",
       ],
       programs: [
-        "Fullstack Web Development",
+        "Software Engineering",
         "Growth Marketing",
         "UI/UX Design",
         "Data Analytics",

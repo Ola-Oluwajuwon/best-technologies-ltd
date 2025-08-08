@@ -4,31 +4,96 @@ import type React from "react";
 
 import { Button } from "@/ui/button";
 import { Input } from "@/ui/input";
-import { Mail, ArrowRight, Sparkles, Zap, Star } from "lucide-react";
+import { Mail, ArrowRight, Sparkles, Zap, Star, Loader2 } from "lucide-react";
 import { useState } from "react";
+import { newsletterApi } from "@/lib/api";
+import { useApiRequest } from "@/hooks/useApiRequest";
+import {
+  SuccessModal,
+  ErrorModal,
+  DuplicateEmailModal,
+} from "@/components/ui/ApiModal";
 
 export default function NewsletterSection() {
   const [email, setEmail] = useState("");
   const [showSuccessModal, setShowSuccessModal] = useState(false);
+  const [showErrorModal, setShowErrorModal] = useState(false);
+  const [showDuplicateModal, setShowDuplicateModal] = useState(false);
+  const [duplicateEmail, setDuplicateEmail] = useState("");
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const {
+    loading,
+    error,
+    execute: subscribeToNewsletter,
+    reset,
+  } = useApiRequest(newsletterApi.subscribe);
+
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // Handle newsletter signup
-    console.log("Newsletter signup:", email);
-    setEmail("");
-  };
-  const handleNewsletterSubmit = () => {
-    if (email.trim() && email.includes("@")) {
-      // Handle newsletter signup
-      console.log("Newsletter signup:", email);
-      // Here you can add API call to submit the email
-      // Example: await subscribeToNewsletter(email);
-      setEmail("");
-      setShowSuccessModal(true); // Show the success modal
-      // You could also show a success message here
-    } else {
-      console.log("Please enter a valid email address");
+
+    if (!email.trim()) {
+      return;
     }
+
+    const result = await subscribeToNewsletter(email);
+
+    if (result?.success) {
+      setEmail("");
+      setShowSuccessModal(true);
+    } else if (error) {
+      // Check if it's a 409 duplicate email error
+      if (error.statusCode === 409) {
+        setDuplicateEmail(email.trim());
+        setShowDuplicateModal(true);
+        setEmail("");
+      } else {
+        setShowErrorModal(true);
+      }
+    }
+  };
+
+  const handleNewsletterSubmit = async () => {
+    if (!email.trim()) {
+      return;
+    }
+
+    const result = await subscribeToNewsletter(email);
+
+    if (result?.success) {
+      setEmail("");
+      setShowSuccessModal(true);
+    } else if (error) {
+      // Check if it's a 409 duplicate email error
+      if (error.statusCode === 409) {
+        setDuplicateEmail(email.trim());
+        setShowDuplicateModal(true);
+        setEmail("");
+      } else {
+        setShowErrorModal(true);
+      }
+    }
+  };
+
+  const handleRetry = () => {
+    setShowErrorModal(false);
+    reset();
+    handleNewsletterSubmit();
+  };
+
+  const handleCloseSuccessModal = () => {
+    setShowSuccessModal(false);
+    reset();
+  };
+
+  const handleCloseErrorModal = () => {
+    setShowErrorModal(false);
+    reset();
+  };
+
+  const handleCloseDuplicateModal = () => {
+    setShowDuplicateModal(false);
+    setDuplicateEmail("");
+    reset();
   };
 
   return (
@@ -327,39 +392,55 @@ export default function NewsletterSection() {
                       value={email}
                       onChange={(e) => setEmail(e.target.value)}
                       required
-                      className="flex-1 bg-slate-800/50 border-brand-primary text-slate-200 placeholder:text-slate-400 focus:border-brand-secondary py-4 md:py-6 rounded-xl transition-all duration-300 shadow-lg focus:shadow-brand-primary/25 hover:bg-slate-800/70 hover:border-brand-secondary focus:outline-none focus:ring-2 focus:ring-brand-secondary focus:ring-opacity-50 text-sm md:text-base"
+                      disabled={loading}
+                      className="flex-1 bg-slate-800/50 border-brand-primary text-slate-200 placeholder:text-slate-400 focus:border-brand-secondary py-4 md:py-6 rounded-xl transition-all duration-300 shadow-lg focus:shadow-brand-primary/25 hover:bg-slate-800/70 hover:border-brand-secondary focus:outline-none focus:ring-2 focus:ring-brand-secondary focus:ring-opacity-50 text-sm md:text-base disabled:opacity-50 disabled:cursor-not-allowed"
                     />
                     <Button
                       type="submit"
-                      className="group btn-gradient-primary px-4 md:px-6 py-4 md:py-6 text-sm md:text-base"
-                      onClick={handleNewsletterSubmit}
+                      disabled={loading || !email.trim()}
+                      className="group btn-gradient-primary px-4 md:px-6 py-4 md:py-6 text-sm md:text-base disabled:opacity-50 disabled:cursor-not-allowed"
                     >
-                      Subscribe
-                      <ArrowRight className="btn-gradient-icon-hover group-hover:translate-x-1 w-4 h-4 md:w-5 md:h-5" />
+                      {loading ? (
+                        <>
+                          <Loader2 className="w-4 h-4 md:w-5 md:h-5 animate-spin" />
+                          Subscribing...
+                        </>
+                      ) : (
+                        <>
+                          Subscribe
+                          <ArrowRight className="btn-gradient-icon-hover group-hover:translate-x-1 w-4 h-4 md:w-5 md:h-5" />
+                        </>
+                      )}
                     </Button>
-                    {/* Success Modal */}
-                    {showSuccessModal && (
-                      <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 p-4">
-                        <div className="bg-white rounded-lg shadow-lg p-6 md:p-8 max-w-sm w-full text-center">
-                          <div className="flex justify-center mb-4">
-                            <Sparkles className="h-6 w-6 md:h-8 md:w-8 text-green-500 animate-bounce" />
-                          </div>
-                          <h3 className="text-base md:text-lg font-semibold mb-2 text-slate-900">
-                            Subscription Successful!
-                          </h3>
-                          <p className="text-slate-600 mb-4 text-sm md:text-base">
-                            Thank you for subscribing to our newsletter.
-                          </p>
-                          <Button
-                            className="btn-gradient-primary w-full text-sm md:text-base"
-                            onClick={() => setShowSuccessModal(false)}
-                          >
-                            Close
-                          </Button>
-                        </div>
-                      </div>
-                    )}
                   </form>
+
+                  {/* Success Modal */}
+                  <SuccessModal
+                    isOpen={showSuccessModal}
+                    onClose={handleCloseSuccessModal}
+                    title="Subscription Successful!"
+                    description="Thank you for subscribing to our newsletter. You'll receive the latest insights and updates directly in your inbox."
+                  />
+
+                  {/* Error Modal */}
+                  <ErrorModal
+                    isOpen={showErrorModal}
+                    onClose={handleCloseErrorModal}
+                    onRetry={handleRetry}
+                    retryLabel="Try Again"
+                    title="Subscription Failed"
+                    description={
+                      error?.message ||
+                      "Something went wrong while subscribing to our newsletter. Please try again."
+                    }
+                  />
+
+                  {/* Duplicate Email Modal */}
+                  <DuplicateEmailModal
+                    isOpen={showDuplicateModal}
+                    onClose={handleCloseDuplicateModal}
+                    email={duplicateEmail}
+                  />
                 </div>
 
                 <div className="text-xs md:text-sm text-slate-500 max-w-md mx-auto">
