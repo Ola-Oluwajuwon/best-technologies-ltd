@@ -5,6 +5,7 @@ import Image from "next/image";
 import Link from "next/link";
 import NavBar from "@/components/Header/NavBar";
 import Footer from "@/components/Footer/Footer";
+import { AnimatedGallery } from "@/components/gallery/AnimatedGallery";
 import {
   Users,
   Coffee,
@@ -417,6 +418,9 @@ const OurTeam = () => {
             </div>
           </div>
         </section>
+
+        {/* Animated Gallery Section */}
+        <AnimatedGallery />
 
         {/* Join Our Team CTA */}
         <section className="py-16 px-4 sm:px-6 lg:px-8">

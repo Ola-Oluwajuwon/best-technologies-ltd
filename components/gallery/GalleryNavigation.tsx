@@ -1,0 +1,88 @@
+import { GridLayout } from "@/types/gallery";
+import { GRID_LAYOUTS } from "./GridLayouts";
+
+interface GalleryNavigationProps {
+  currentLayout: number;
+  onLayoutChange: (layoutId: number) => void;
+  isAutoPlay: boolean;
+  onAutoPlayToggle: () => void;
+}
+
+const LayoutPreview = ({
+  layout,
+  isActive,
+}: {
+  layout: GridLayout;
+  isActive: boolean;
+}) => {
+  return (
+    <div className="w-12 h-8 relative">
+      <div
+        className="w-full h-full grid gap-0.5 p-1"
+        style={{
+          gridTemplateColumns: "repeat(5, 1fr)",
+          gridTemplateRows:
+            layout.id === 5 ? "repeat(3, 1fr)" : "repeat(2, 1fr)",
+        }}
+      >
+        {layout.positions.map((pos, index) => (
+          <div
+            key={pos.id}
+            className={`bg-brand-primary rounded-sm transition-all duration-200 ${
+              isActive ? "opacity-100" : "opacity-60"
+            }`}
+            style={{ gridArea: pos.gridArea }}
+          />
+        ))}
+      </div>
+    </div>
+  );
+};
+
+export const GalleryNavigation = ({
+  currentLayout,
+  onLayoutChange,
+  isAutoPlay,
+  onAutoPlayToggle,
+}: GalleryNavigationProps) => {
+  return (
+    <div className="flex items-center justify-center gap-6 mt-8">
+      <div className="flex gap-3">
+        {GRID_LAYOUTS.map((layout) => (
+          <button
+            key={layout.id}
+            onClick={() => onLayoutChange(layout.id)}
+            className={`gallery-nav-button p-2 ${
+              currentLayout === layout.id ? "active" : ""
+            }`}
+            aria-label={`Switch to ${layout.name} layout`}
+          >
+            <LayoutPreview
+              layout={layout}
+              isActive={currentLayout === layout.id}
+            />
+          </button>
+        ))}
+      </div>
+
+      <div className="w-px h-8 bg-gray-600" />
+
+      <button
+        onClick={onAutoPlayToggle}
+        className={`gallery-nav-button p-3 ${isAutoPlay ? "active" : ""}`}
+        aria-label={isAutoPlay ? "Pause auto-play" : "Start auto-play"}
+      >
+        <div className="w-4 h-4 flex items-center justify-center">
+          {isAutoPlay ? (
+            <div className="flex gap-0.5">
+              <div className="w-1 h-3 bg-brand-primary rounded-sm" />
+              <div className="w-1 h-3 bg-brand-primary rounded-sm" />
+            </div>
+          ) : (
+            <div className="w-0 h-0 border-l-[6px] border-r-0 border-t-[4px] border-b-[4px] border-l-brand-primary border-t-transparent border-b-transparent" />
+          )}
+        </div>
+      </button>
+    </div>
+  );
+};
