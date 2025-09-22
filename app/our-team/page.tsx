@@ -271,11 +271,11 @@ const OurTeam = () => {
 
       <main className="relative z-10">
         {/* Hero Section */}
-        <section className="relative pt-40 pb-24 px-4 sm:px-6 lg:px-8 overflow-hidden">
+        <section className="relative pt-40 pb-32 px-4 sm:px-6 lg:px-8 overflow-hidden h-screen max-h-[780px]">
           {/* Background Image */}
           <div className="absolute inset-0 z-0">
             <Image
-              src="/staff/best-tech-team.jpg"
+              src="/gallery/team-gallery-01.jpg"
               alt="Best Technologies Ltd Team"
               fill
               className="object-cover"
@@ -283,8 +283,8 @@ const OurTeam = () => {
               priority
             />
             {/* Overlay */}
-            <div className="absolute inset-0 bg-gradient-to-br from-gray-900/90 via-gray-800/85 to-gray-900/95"></div>
-            <div className="absolute inset-0 bg-black/40"></div>
+            <div className="absolute inset-0 bg-gradient-to-br from-gray-900/20 via-gray-800/20 to-gray-900/20"></div>
+            <div className="absolute inset-0 bg-black/20"></div>
           </div>
 
           {/* Content */}
