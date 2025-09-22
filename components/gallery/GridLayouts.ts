@@ -23,16 +23,16 @@ export const GRID_LAYOUTS: GridLayout[] = [
     ],
   },
 
-  // Layout 3: 2 large on top + 2 large on bottom + 1 medium on right
+  // Layout 3: 2 large on top + 3 medium on bottom (all landscape)
   {
     id: 3,
     name: "Balanced",
     positions: [
       { id: "pos-1", gridArea: "1 / 1 / 2 / 3", aspectRatio: 16 / 9 },
-      { id: "pos-2", gridArea: "1 / 3 / 2 / 5", aspectRatio: 16 / 9 },
+      { id: "pos-2", gridArea: "1 / 3 / 2 / 6", aspectRatio: 16 / 9 },
       { id: "pos-3", gridArea: "2 / 1 / 3 / 3", aspectRatio: 16 / 9 },
       { id: "pos-4", gridArea: "2 / 3 / 3 / 5", aspectRatio: 16 / 9 },
-      { id: "pos-5", gridArea: "1 / 5 / 3 / 6", aspectRatio: 9 / 16 },
+      { id: "pos-5", gridArea: "2 / 5 / 3 / 6", aspectRatio: 4 / 3 },
     ],
   },
 
