@@ -183,12 +183,10 @@ export const AnimatedGallery = () => {
     <div className="gallery-container py-16 px-4">
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-12">
-          <h2 className="text-4xl font-bold mb-4 bg-gradient-to-r from-brand-primary to-brand-accent bg-clip-text text-transparent">
-            Team Gallery
-          </h2>
-          <p className="text-xl text-gray-300">
+          <h2 className="text-4xl font-bold mb-4 text-white">Team Gallery</h2>
+          {/* <p className="text-xl text-gray-300">
             Get to know our amazing team through this interactive gallery
-          </p>
+          </p> */}
         </div>
 
         <div
