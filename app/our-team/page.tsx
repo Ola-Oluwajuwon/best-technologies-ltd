@@ -274,11 +274,21 @@ const OurTeam = () => {
         <section className="relative pt-40 pb-32 px-4 sm:px-6 lg:px-8 overflow-hidden h-screen max-h-[780px]">
           {/* Background Image */}
           <div className="absolute inset-0 z-0">
+            {/* Mobile Portrait Image */}
+            <Image
+              src="/gallery/team-gallery-01-portrait.jpg"
+              alt="Best Technologies Ltd Team"
+              fill
+              className="object-cover sm:hidden"
+              quality={100}
+              priority
+            />
+            {/* Desktop Landscape Image */}
             <Image
               src="/gallery/team-gallery-01.jpg"
               alt="Best Technologies Ltd Team"
               fill
-              className="object-cover"
+              className="object-cover hidden sm:block"
               quality={100}
               priority
             />
