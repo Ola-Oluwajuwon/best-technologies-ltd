@@ -1,6 +1,7 @@
 "use client";
 
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect, useRef, useCallback } from "react";
+import Image from "next/image";
 import { GalleryImage, AnimationState } from "@/types/gallery";
 import { MOBILE_LAYOUTS, TABLET_LAYOUTS, DESKTOP_LAYOUTS } from "./GridLayouts";
 import { GalleryNavigation } from "./GalleryNavigation";
@@ -151,7 +152,7 @@ export const AnimatedGallery = () => {
     currentLayouts,
   ]);
 
-  const handleLayoutChange = (newLayoutId: number) => {
+  const handleLayoutChange = useCallback((newLayoutId: number) => {
     if (
       animationState.isTransitioning ||
       newLayoutId === animationState.currentLayout
@@ -205,7 +206,7 @@ export const AnimatedGallery = () => {
         isTransitioning: false,
       }));
     }, 100);
-  };
+  }, [animationState.isTransitioning, animationState.currentLayout, currentLayouts, imageMapping]);
 
   const handleAutoPlayToggle = () => {
     setAnimationState((prev) => ({ ...prev, autoPlay: !prev.autoPlay }));
@@ -270,11 +271,14 @@ export const AnimatedGallery = () => {
                     : undefined,
                 }}
               >
-                <img
+                <Image
                   src={image.src}
                   alt={image.alt}
                   className="gallery-image"
-                  loading="eager"
+                  priority={true}
+                  width={500}
+                  height={500}
+                  style={{ objectFit: 'cover' }}
                 />
               </div>
             );

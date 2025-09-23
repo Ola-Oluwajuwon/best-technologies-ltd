@@ -52,7 +52,7 @@ const LayoutPreview = ({
           gridTemplateRows: config.rows,
         }}
       >
-        {layout.positions.map((pos, index) => (
+        {layout.positions.map((pos) => (
           <div
             key={pos.id}
             className={`bg-brand-primary rounded-sm transition-all duration-200 ${

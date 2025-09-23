@@ -4,7 +4,7 @@ import React from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useState } from "react";
-import { Linkedin, Twitter, Github, Instagram } from "lucide-react";
+import { Linkedin, Twitter, Instagram } from "lucide-react";
 import { FaArrowUp, FaTiktok } from "react-icons/fa";
 
 const Footer = () => {
