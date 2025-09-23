@@ -2,8 +2,9 @@
 
 import { useState, useEffect, useRef } from "react";
 import { GalleryImage, AnimationState } from "@/types/gallery";
-import { GRID_LAYOUTS } from "./GridLayouts";
+import { MOBILE_LAYOUTS, TABLET_LAYOUTS, DESKTOP_LAYOUTS } from "./GridLayouts";
 import { GalleryNavigation } from "./GalleryNavigation";
+import { useBreakpoint } from "@/hooks/useBreakpoint";
 
 // Team images from the public/gallery directory
 const GALLERY_IMAGES: GalleryImage[] = [
@@ -50,6 +51,8 @@ const GALLERY_IMAGES: GalleryImage[] = [
 ];
 
 export const AnimatedGallery = () => {
+  const breakpoint = useBreakpoint();
+
   const [animationState, setAnimationState] = useState<AnimationState>({
     currentLayout: 1,
     isTransitioning: false,
@@ -62,9 +65,58 @@ export const AnimatedGallery = () => {
   const autoPlayTimer = useRef<NodeJS.Timeout | null>(null);
   const pauseTimer = useRef<NodeJS.Timeout | null>(null);
 
+  // Get appropriate layouts based on screen size
+  const getCurrentLayouts = () => {
+    switch (breakpoint) {
+      case "mobile":
+        return MOBILE_LAYOUTS;
+      case "tablet":
+        return TABLET_LAYOUTS;
+      default:
+        return DESKTOP_LAYOUTS;
+    }
+  };
+
+  const currentLayouts = getCurrentLayouts();
+
+  // Get grid configuration based on breakpoint
+  const getGridConfig = () => {
+    switch (breakpoint) {
+      case "mobile":
+        return {
+          columns: "repeat(2, 1fr)",
+          rows: "repeat(2, 1fr)",
+          height: "400px",
+          gap: "0.5rem",
+        };
+      case "tablet":
+        return {
+          columns: "repeat(3, 1fr)",
+          rows: "repeat(2, 1fr)",
+          height: "500px",
+          gap: "0.75rem",
+        };
+      default:
+        return {
+          columns: "repeat(5, 1fr)",
+          rows:
+            animationState.currentLayout === 5
+              ? "repeat(3, 1fr)"
+              : "repeat(2, 1fr)",
+          height: "600px",
+          gap: "1rem",
+        };
+    }
+  };
+
+  // Reset to first layout when breakpoint changes
+  useEffect(() => {
+    setAnimationState((prev) => ({ ...prev, currentLayout: 1 }));
+  }, [breakpoint]);
+
   // Initialize image mapping for first layout
   useEffect(() => {
-    const firstLayout = GRID_LAYOUTS[0];
+    const firstLayout = currentLayouts[0];
     const initialMapping = new Map<string, GalleryImage>();
 
     firstLayout.positions.forEach((pos, index) => {
@@ -74,7 +126,7 @@ export const AnimatedGallery = () => {
     });
 
     setImageMapping(initialMapping);
-  }, []);
+  }, [currentLayouts]);
 
   // Auto-play functionality
   useEffect(() => {
@@ -82,7 +134,7 @@ export const AnimatedGallery = () => {
 
     autoPlayTimer.current = setTimeout(() => {
       handleLayoutChange(
-        (animationState.currentLayout % GRID_LAYOUTS.length) + 1
+        (animationState.currentLayout % currentLayouts.length) + 1
       );
     }, 4500);
 
@@ -96,6 +148,7 @@ export const AnimatedGallery = () => {
     animationState.currentLayout,
     animationState.autoPlay,
     animationState.isTransitioning,
+    currentLayouts,
   ]);
 
   const handleLayoutChange = (newLayoutId: number) => {
@@ -107,10 +160,10 @@ export const AnimatedGallery = () => {
 
     setAnimationState((prev) => ({ ...prev, isTransitioning: true }));
 
-    const currentLayout = GRID_LAYOUTS.find(
+    const currentLayout = currentLayouts.find(
       (l) => l.id === animationState.currentLayout
     );
-    const newLayout = GRID_LAYOUTS.find((l) => l.id === newLayoutId);
+    const newLayout = currentLayouts.find((l) => l.id === newLayoutId);
 
     if (!currentLayout || !newLayout) return;
 
@@ -173,9 +226,10 @@ export const AnimatedGallery = () => {
     }, 3000);
   };
 
-  const currentLayout = GRID_LAYOUTS.find(
+  const currentLayout = currentLayouts.find(
     (l) => l.id === animationState.currentLayout
   );
+  const gridConfig = getGridConfig();
 
   if (!currentLayout) return null;
 
@@ -184,22 +238,20 @@ export const AnimatedGallery = () => {
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-12">
           <h2 className="text-4xl font-bold mb-4 text-white">Team Gallery</h2>
-          {/* <p className="text-xl text-gray-300">
+          <p className="text-xl text-gray-300">
             Get to know our amazing team through this interactive gallery
-          </p> */}
+          </p>
         </div>
 
         <div
-          className="relative w-full h-[600px] mx-auto mb-8 overflow-hidden rounded-2xl"
+          className="relative w-full mx-auto mb-8 overflow-hidden rounded-2xl"
           onMouseEnter={pauseAutoPlay}
           style={{
             display: "grid",
-            gridTemplateColumns: "repeat(5, 1fr)",
-            gridTemplateRows:
-              animationState.currentLayout === 5
-                ? "repeat(3, 1fr)"
-                : "repeat(2, 1fr)",
-            gap: "1rem",
+            gridTemplateColumns: gridConfig.columns,
+            gridTemplateRows: gridConfig.rows,
+            gap: gridConfig.gap,
+            height: gridConfig.height,
           }}
         >
           {currentLayout.positions.map((position) => {
@@ -234,6 +286,8 @@ export const AnimatedGallery = () => {
           onLayoutChange={handleLayoutChange}
           isAutoPlay={animationState.autoPlay}
           onAutoPlayToggle={handleAutoPlayToggle}
+          layouts={currentLayouts}
+          breakpoint={breakpoint}
         />
       </div>
     </div>
