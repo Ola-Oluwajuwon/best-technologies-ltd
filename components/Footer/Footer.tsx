@@ -23,13 +23,28 @@ const Footer = () => {
 
   return (
     <footer className="relative overflow-hidden bg-gray-900">
-      {/* Skyline Background Image */}
-      <div
-        className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-        style={{
-          backgroundImage: "url(/imgs/footer-skyline.jpg)",
-        }}
-      />
+      {/* Responsive Background Images */}
+      {/* Mobile Portrait Image */}
+      <div className="absolute inset-0 sm:hidden">
+        <Image
+          src="/gallery/the-knowledge-hub-01-portrait.jpg"
+          alt="The Knowledge Hub"
+          fill
+          className="object-cover"
+          quality={100}
+        />
+      </div>
+
+      {/* Desktop Landscape Image */}
+      <div className="absolute inset-0 hidden sm:block">
+        <Image
+          src="/gallery/the-knowledge-hub-01.jpg"
+          alt="The Knowledge Hub"
+          fill
+          className="object-cover"
+          quality={100}
+        />
+      </div>
 
       {/* Dark Overlay for better text readability */}
       <div className="absolute inset-0 bg-black/60" />
@@ -217,7 +232,7 @@ const Footer = () => {
               Connect
             </h4>
             <div className="space-y-4">
-              <a
+              <Link
                 href="https://www.linkedin.com/company/best-technologies-limited"
                 target="_blank"
                 rel="noopener noreferrer"
@@ -225,8 +240,8 @@ const Footer = () => {
               >
                 <Linkedin className="w-5 h-5" />
                 LinkedIn
-              </a>
-              <a
+              </Link>
+              <Link
                 href="https://x.com/besttech_ltd"
                 target="_blank"
                 rel="noopener noreferrer"
@@ -234,8 +249,8 @@ const Footer = () => {
               >
                 <Twitter className="w-5 h-5" />
                 Twitter
-              </a>
-              <a
+              </Link>
+              <Link
                 href="https://www.tiktok.com/@besttechltd"
                 target="_blank"
                 rel="noopener noreferrer"
@@ -243,8 +258,8 @@ const Footer = () => {
               >
                 <FaTiktok className="w-5 h-5" />
                 TikTok
-              </a>
-              <a
+              </Link>
+              <Link
                 href="https://www.instagram.com/besttechnologiesltd/"
                 target="_blank"
                 rel="noopener noreferrer"
@@ -252,8 +267,8 @@ const Footer = () => {
               >
                 <Instagram className="w-5 h-5" />
                 Instagram
-              </a>
-              <a
+              </Link>
+              {/* <Link
                 href="https://github.com/Best-tech-dev"
                 target="_blank"
                 rel="noopener noreferrer"
@@ -261,7 +276,7 @@ const Footer = () => {
               >
                 <Github className="w-5 h-5" />
                 GitHub
-              </a>
+              </Link> */}
             </div>
           </div>
         </div>
@@ -307,7 +322,7 @@ const Footer = () => {
         {/* Scroll to Top Button */}
         {showScroll && (
           <button
-            className="fixed z-50 bottom-4 right-4 md:bottom-6 md:right-6 border rounded-full p-2 text-[#7ca412] border-[#7ca412] bg-[#0e1117] hover:bg-[#7ca412] hover:text-white transition"
+            className="fixed z-50 bottom-4 right-4 md:bottom-6 md:right-6 border rounded-full p-2 hover:text-[#7ca412] border-[#7ca412] hover:bg-[#0e1117] bg-[#7ca412] text-white hover:cursor-pointer transition"
             onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
           >
             <FaArrowUp size={18} />
