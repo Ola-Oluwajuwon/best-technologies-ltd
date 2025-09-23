@@ -9,16 +9,33 @@ const NewLandingPageHero = () => {
   return (
     <section
       id="contact"
-      className="h-screen max-h-[780px] py-20 bg-gradient-to-br from-black via-brand-secondary to-brand-neutral-near-black relative overflow-hidden flex items-center"
+      className="h-screen max-h-[780px] py-20 relative overflow-hidden flex items-center"
     >
-      {/* Background elements */}
-      <div className="absolute inset-0">
-        <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-brand-primary/5 rounded-full blur-3xl animate-float"></div>
-        <div
-          className="absolute bottom-1/4 right-1/4 w-80 h-80 bg-brand-accent/5 rounded-full blur-3xl animate-float"
-          style={{ animationDelay: "2s" }}
-        ></div>
-      </div>
+      {/* Video Background */}
+      {/* Mobile Portrait Video */}
+      <video
+        className="absolute inset-0 w-full h-full object-cover sm:hidden"
+        autoPlay
+        loop
+        muted
+        playsInline
+      >
+        <source src="/vids/team-space-portrait.mp4" type="video/mp4" />
+      </video>
+
+      {/* Desktop Landscape Video */}
+      <video
+        className="absolute inset-0 w-full h-full object-cover hidden sm:block"
+        autoPlay
+        loop
+        muted
+        playsInline
+      >
+        <source src="/vids/team-space.mp4" type="video/mp4" />
+      </video>
+
+      {/* Transparent Black Overlay */}
+      <div className="absolute inset-0 bg-black/60"></div>
 
       <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
         <div className="mb-6 sm:mb-8 mt-6 sm:mt-10">
