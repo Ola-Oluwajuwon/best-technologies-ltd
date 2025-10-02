@@ -12,7 +12,7 @@ const courses = [
     desc: "Build intelligent systems using Python, TensorFlow, and modern AI frameworks.",
     img: "/bootcamp/ai-ml.jpg",
     url: "/trainings/bootcamp/ai-ml",
-    duration: "9 months",
+    duration: "6 months",
     level: "Advanced",
   },
   {
@@ -21,7 +21,7 @@ const courses = [
     desc: "Master frontend and backend in our popular defacto software engineering bootcamp.",
     img: "/bootcamp/software-development.jpg",
     url: "/trainings/bootcamp/software-engineering",
-    duration: "12 months",
+    duration: "6 months",
     level: "Beginner to Advanced",
   },
   {

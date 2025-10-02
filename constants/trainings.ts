@@ -13,7 +13,7 @@ export const trainings: TrainingType[] = [
   {
     id: "bootcamp-001",
     title: "Software Engineering Bootcamp",
-    slug: "bootcamp/fullstack-web-development",
+    slug: "bootcamp/software-engineering",
     description:
       "Intensive hands-on training in frontend and backend technologies. Ideal for beginners and career switchers.",
     category: "Bootcamp",
