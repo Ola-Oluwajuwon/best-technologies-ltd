@@ -129,6 +129,70 @@ export const AnimatedGallery = () => {
     setImageMapping(initialMapping);
   }, [currentLayouts]);
 
+  const handleLayoutChange = useCallback(
+    (newLayoutId: number) => {
+      if (
+        animationState.isTransitioning ||
+        newLayoutId === animationState.currentLayout
+      )
+        return;
+
+      setAnimationState((prev) => ({ ...prev, isTransitioning: true }));
+
+      const currentLayout = currentLayouts.find(
+        (l) => l.id === animationState.currentLayout
+      );
+      const newLayout = currentLayouts.find((l) => l.id === newLayoutId);
+
+      if (!currentLayout || !newLayout) return;
+
+      // Create new mapping with intelligent image positioning
+      const newMapping = new Map<string, GalleryImage>();
+      const usedImages = new Set<string>();
+
+      // First, try to maintain some images from current positions
+      let imageIndex = 0;
+      newLayout.positions.forEach((newPos, index) => {
+        const currentImage = Array.from(imageMapping.values())[
+          index % imageMapping.size
+        ];
+        if (currentImage && !usedImages.has(currentImage.id)) {
+          newMapping.set(newPos.id, currentImage);
+          usedImages.add(currentImage.id);
+        } else {
+          // Find next available image
+          while (
+            imageIndex < GALLERY_IMAGES.length &&
+            usedImages.has(GALLERY_IMAGES[imageIndex].id)
+          ) {
+            imageIndex++;
+          }
+          if (imageIndex < GALLERY_IMAGES.length) {
+            newMapping.set(newPos.id, GALLERY_IMAGES[imageIndex]);
+            usedImages.add(GALLERY_IMAGES[imageIndex].id);
+            imageIndex++;
+          }
+        }
+      });
+
+      // Apply new mapping with transition
+      setTimeout(() => {
+        setImageMapping(newMapping);
+        setAnimationState((prev) => ({
+          ...prev,
+          currentLayout: newLayoutId,
+          isTransitioning: false,
+        }));
+      }, 100);
+    },
+    [
+      animationState.isTransitioning,
+      animationState.currentLayout,
+      currentLayouts,
+      imageMapping,
+    ]
+  );
+
   // Auto-play functionality
   useEffect(() => {
     if (!animationState.autoPlay || animationState.isTransitioning) return;
@@ -150,63 +214,8 @@ export const AnimatedGallery = () => {
     animationState.autoPlay,
     animationState.isTransitioning,
     currentLayouts,
+    handleLayoutChange,
   ]);
-
-  const handleLayoutChange = useCallback((newLayoutId: number) => {
-    if (
-      animationState.isTransitioning ||
-      newLayoutId === animationState.currentLayout
-    )
-      return;
-
-    setAnimationState((prev) => ({ ...prev, isTransitioning: true }));
-
-    const currentLayout = currentLayouts.find(
-      (l) => l.id === animationState.currentLayout
-    );
-    const newLayout = currentLayouts.find((l) => l.id === newLayoutId);
-
-    if (!currentLayout || !newLayout) return;
-
-    // Create new mapping with intelligent image positioning
-    const newMapping = new Map<string, GalleryImage>();
-    const usedImages = new Set<string>();
-
-    // First, try to maintain some images from current positions
-    let imageIndex = 0;
-    newLayout.positions.forEach((newPos, index) => {
-      const currentImage = Array.from(imageMapping.values())[
-        index % imageMapping.size
-      ];
-      if (currentImage && !usedImages.has(currentImage.id)) {
-        newMapping.set(newPos.id, currentImage);
-        usedImages.add(currentImage.id);
-      } else {
-        // Find next available image
-        while (
-          imageIndex < GALLERY_IMAGES.length &&
-          usedImages.has(GALLERY_IMAGES[imageIndex].id)
-        ) {
-          imageIndex++;
-        }
-        if (imageIndex < GALLERY_IMAGES.length) {
-          newMapping.set(newPos.id, GALLERY_IMAGES[imageIndex]);
-          usedImages.add(GALLERY_IMAGES[imageIndex].id);
-          imageIndex++;
-        }
-      }
-    });
-
-    // Apply new mapping with transition
-    setTimeout(() => {
-      setImageMapping(newMapping);
-      setAnimationState((prev) => ({
-        ...prev,
-        currentLayout: newLayoutId,
-        isTransitioning: false,
-      }));
-    }, 100);
-  }, [animationState.isTransitioning, animationState.currentLayout, currentLayouts, imageMapping]);
 
   const handleAutoPlayToggle = () => {
     setAnimationState((prev) => ({ ...prev, autoPlay: !prev.autoPlay }));
@@ -278,7 +287,7 @@ export const AnimatedGallery = () => {
                   priority={true}
                   width={500}
                   height={500}
-                  style={{ objectFit: 'cover' }}
+                  style={{ objectFit: "cover" }}
                 />
               </div>
             );
