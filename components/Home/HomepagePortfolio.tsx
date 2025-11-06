@@ -22,71 +22,66 @@ const portfolioProjects = [
     id: 1,
     title: "Learning Management System",
     description:
-      "Interactive online education platform with video streaming and assessments.",
+      "Interactive online education platform with video streaming, assessments, and course management. Delivers engaging content with automated grading, discussion forums, and personalized learning paths.",
     image: "/portfolio/portfolio-01.png",
-    link: "https://smarteduhub.vercel.app/",
+    link: "",
     category: "Education",
-    tech: ["Next.js", "Nest.js", "Postgres"],
   },
   {
     id: 2,
-    title: "FinTech Platform",
-    description: "Comprehensive financial transactions and analytics platform.",
+    title: "Our Space: Property Management Platform",
+    description:
+      "End-to-end real estate solution streamlining property searches, virtual tours, and tenant management. Connects owners, agents, and buyers through advanced filtering and real-time notifications.",
     image: "/portfolio/portfolio-02.png",
-    link: "https://payflex-frontend-personal-copy.vercel.app/",
-    category: "Finance",
-    tech: ["React", "React Native", "Nest.js"],
+    link: "https://www.exploreourspace.com",
+    category: "Real Estate",
   },
   {
     id: 3,
     title: "Oxygen FM website",
     description:
-      "A platform for managing and streaming audio content for Oxygen FM lovers.",
+      "Seamless radio streaming platform featuring live broadcasts, podcast archives, and presenter profiles. Offers high-quality audio, interactive engagement tools, and on-demand content access.",
     image: "/portfolio/portfolio-07.png",
-    link: "https://oxygenfm.com",
+    link: "",
     category: "Media",
-    tech: ["PHP", "JavaScript", "MySQL"],
   },
   {
     id: 4,
     title: "AccessSeller Ecommerce and Referral Platform",
     description:
-      "A comprehensive platform for online shopping and affiliate marketing.",
+      "Innovative marketplace combining e-commerce with a powerful referral system. Features secure payments, real-time inventory tracking, and an affiliate dashboard for earnings management.",
     image: "/portfolio/portfolio-04.png",
-    link: "https://access-sellr-dusky.vercel.app/",
+    link: "https://accessseller.com",
     category: "Ecommerce",
-    tech: ["Next.js", "Express.js", "MongoDB"],
   },
   {
     id: 5,
     title: "Best In Print Academy (BIPA)",
     description:
-      "Engage with the BIPA website to register, explore courses, and more.",
+      "Professional training platform for print technology, design, and publishing courses. Students can explore catalogs, access materials, join virtual workshops, and earn industry certifications.",
     image: "/portfolio/portfolio-05.png",
     link: "https://bestinprintacademy.com/",
     category: "Upskill",
-    tech: ["JavaScript", "PHP", "MySQL"],
   },
   {
     id: 6,
     title: "Staff Management System for Enterprise",
     description:
-      "Comprehensive staff management system for enterprise-level organizations.",
+      "Comprehensive HR solution for employee onboarding, attendance tracking, and performance reviews. Features role-based access, automated workflows, analytics, and enterprise system integration.",
     image: "/portfolio/portfolio-03.png",
-    link: "https://besttechnologiesltd-dashboard.vercel.app",
+    link: "",
     category: "Management",
-    tech: ["Next.js", "Nest.js", "MongoDB"],
   },
-  {
-    id: 7,
-    title: "Accessible Publishers",
-    description:
-      "A platform for promoting and distributing accessible literature.",
-    image: "/portfolio/portfolio-06.png",
-    link: "https://example-logistics.com",
-    category: "Web Development",
-    tech: ["PHP", "JavaScript", "MongoDB"],
-  },
+  // {
+  //   id: 7,
+  //   title: "Accessible Publishers",
+  //   description:
+  //     "A platform for promoting and distributing accessible literature.",
+  //   image: "/portfolio/portfolio-06.png",
+  //   link: "https://example-logistics.com",
+  //   category: "Web Development",
+  //   tech: ["PHP", "JavaScript", "MongoDB"],
+  // },
   // {
   //   id: 8,
   //   title: "Restaurant Management",
@@ -129,7 +124,6 @@ interface Project {
   image: string;
   link: string;
   category: string;
-  tech: string[];
 }
 
 // Portfolio Card Design - Side-by-side layout with image and content
@@ -188,35 +182,25 @@ const MarqueeItemCard = ({
 
         {/* Content Section */}
         <div className="p-4 md:p-5">
-          <h3 className="text-lg md:text-xl font-bold text-white mb-2 group-hover:text-brand-primary transition-colors">
+          <h3 className="text-lg md:text-xl font-bold text-white mb-2 group-hover:text-brand-primary transition-colors whitespace-normal">
             {project.title}
           </h3>
-          <p className="text-sm md:text-base text-gray-300 mb-3 line-clamp-2 leading-relaxed">
+          <p className="text-sm md:text-base text-gray-300 mb-4 leading-relaxed whitespace-normal">
             {project.description}
           </p>
 
-          {/* Tech Stack */}
-          <div className="flex flex-wrap gap-1 mb-4">
-            {project.tech.slice(0, 3).map((tech: string, idx: number) => (
-              <span
-                key={idx}
-                className="text-xs px-2 py-1 bg-gray-700/60 text-gray-300 rounded border border-gray-600/50"
-              >
-                {tech}
-              </span>
-            ))}
-          </div>
-
-          {/* CTA Button */}
-          <Link
-            href={project.link}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 px-4 py-2 bg-brand-primary/10 border border-brand-primary/30 text-brand-primary hover:bg-brand-primary/20 hover:border-brand-primary/50 transition-all duration-300 rounded-lg font-medium group/btn"
-          >
-            <span className="text-sm md:text-base">View Project</span>
-            <ArrowRight className="w-4 h-4 group-hover/btn:translate-x-1 transition-transform" />
-          </Link>
+          {/* CTA Button - Only show if link exists */}
+          {project.link && (
+            <Link
+              href={project.link}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 px-4 py-2 bg-brand-primary/10 border border-brand-primary/30 text-brand-primary hover:bg-brand-primary/20 hover:border-brand-primary/50 transition-all duration-300 rounded-lg font-medium group/btn"
+            >
+              <span className="text-sm md:text-base">View Project</span>
+              <ArrowRight className="w-4 h-4 group-hover/btn:translate-x-1 transition-transform" />
+            </Link>
+          )}
         </div>
       </div>
     </div>
