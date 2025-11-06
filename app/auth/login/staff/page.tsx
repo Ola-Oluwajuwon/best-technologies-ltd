@@ -89,7 +89,7 @@ const StaffLoginPage = () => {
               <div className="w-16 h-16 bg-gradient-to-r from-brand-primary to-brand-accent rounded-2xl flex items-center justify-center mx-auto mb-4">
                 <Users className="w-8 h-8 text-white" />
               </div>
-              <h1 className="text-2xl md:text-3xl font-bold mb-2 bg-gradient-to-r from-white via-brand-primary to-brand-accent bg-clip-text text-transparent">
+              <h1 className="text-2xl md:text-3xl font-bold mb-2 bg-gradient-to-r from-white via-brand-primary to-brand-accent bg-clip-text text-transparent pb-1">
                 Staff Login
               </h1>
               <p className="text-gray-400">

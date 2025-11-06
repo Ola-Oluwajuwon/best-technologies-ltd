@@ -412,7 +412,7 @@ const ServiceDetailPage = ({ params }: ServiceDetailPageProps) => {
                   <IconComponent className="w-8 h-8 md:w-10 md:h-10 text-white" />
                 </div>
 
-                <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4 md:mb-6 bg-gradient-to-r from-white via-brand-primary to-brand-accent bg-clip-text text-transparent">
+                <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4 md:mb-6 bg-gradient-to-r from-white via-brand-primary to-brand-accent bg-clip-text text-transparent pb-1">
                   {service.title}
                 </h1>
 

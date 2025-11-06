@@ -271,7 +271,7 @@ const PartnerWithUs = () => {
                   <div className="inline-block bg-brand-primary/20 text-brand-primary px-4 py-2 rounded-full text-sm font-medium mb-6">
                     BEST TECH REFER & EARN PROGRAM
                   </div>
-                  <h1 className="text-4xl md:text-6xl font-bold mb-6 bg-gradient-to-r from-white via-brand-primary to-brand-accent bg-clip-text text-transparent">
+                  <h1 className="text-4xl md:text-6xl font-bold mb-6 bg-gradient-to-r from-white via-brand-primary to-brand-accent bg-clip-text text-transparent pb-1">
                     Send a Project.
                     <br />
                     Earn Instantly.

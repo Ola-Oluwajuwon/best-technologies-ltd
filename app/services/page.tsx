@@ -184,7 +184,7 @@ const Services = () => {
         {/* Hero Section */}
         <section className="pt-24 md:pt-32 pb-16 md:pb-20 px-4 md:px-8">
           <div className="max-w-4xl mx-auto text-center">
-            <h1 className="text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold mb-4 md:mb-6 bg-gradient-to-r from-white via-brand-primary to-brand-accent bg-clip-text text-transparent">
+            <h1 className="text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold mb-4 md:mb-6 bg-gradient-to-r from-white via-brand-primary to-brand-accent bg-clip-text text-transparent pb-1">
               Our Services
             </h1>
             <p className="text-base md:text-lg lg:text-xl text-gray-300 leading-relaxed max-w-3xl mx-auto">
@@ -255,7 +255,7 @@ const Services = () => {
                   <Users className="w-8 h-8 md:w-10 md:h-10 text-white" />
                 </div>
 
-                <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold mb-4 md:mb-6 bg-gradient-to-r from-white via-brand-primary to-brand-accent bg-clip-text text-transparent">
+                <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold mb-4 md:mb-6 bg-gradient-to-r from-white via-brand-primary to-brand-accent bg-clip-text text-transparent pb-1">
                   Invest in Your Future with Our Training Programs
                 </h2>
 

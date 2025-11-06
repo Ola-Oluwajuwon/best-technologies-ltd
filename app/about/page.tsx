@@ -101,7 +101,7 @@ export default function About() {
 
           {/* Content */}
           <div className="relative z-10 max-w-4xl mx-auto text-center">
-            <h1 className="text-5xl md:text-6xl font-bold mb-6 bg-gradient-to-r from-white via-brand-primary to-brand-accent bg-clip-text text-transparent drop-shadow-lg">
+            <h1 className="text-5xl md:text-6xl font-bold mb-6 bg-gradient-to-r from-white via-brand-primary to-brand-accent bg-clip-text text-transparent drop-shadow-lg pb-1">
               About Us
             </h1>
             <p className="text-xl text-gray-100 leading-relaxed max-w-3xl mx-auto drop-shadow-md">

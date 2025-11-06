@@ -110,7 +110,7 @@ const RegistrationForm = () => {
         <div className="max-w-5xl mx-auto">
           {/* Header Section */}
           <div className="text-center mb-12 md:mb-16">
-            <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4 md:mb-6 bg-gradient-to-r from-white via-brand-primary to-brand-accent bg-clip-text text-transparent">
+            <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4 md:mb-6 bg-gradient-to-r from-white via-brand-primary to-brand-accent bg-clip-text text-transparent pb-1">
               Start Your Application
             </h1>
             <p className="text-lg md:text-xl text-gray-300 leading-relaxed max-w-3xl mx-auto mb-6">

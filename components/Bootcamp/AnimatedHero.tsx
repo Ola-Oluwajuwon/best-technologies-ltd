@@ -48,7 +48,7 @@ const AnimatedHero = () => {
           <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold mb-4 sm:mb-6 leading-tight">
             <span className="text-white">Launch Your Tech Career</span>
             <br />
-            <span className="bg-gradient-to-r from-white via-brand-primary to-brand-accent bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-white via-brand-primary to-brand-accent bg-clip-text text-transparent pb-1">
               with Our Tech Bootcamp
             </span>
           </h1>
