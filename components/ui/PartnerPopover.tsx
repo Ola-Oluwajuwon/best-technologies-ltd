@@ -110,7 +110,7 @@ const PartnerPopover: React.FC = () => {
           className="absolute top-2 right-2 md:top-3 md:right-3 text-white/80 hover:text-white transition-colors duration-200"
           aria-label="Close partner program notification"
         >
-          <X size={16} className="md:w-[18px] md:h-[18px]" />
+          <X size={16} className="md:w-[18px] md:h-[18px] cursor-pointer" />
         </button>
 
         {/* Content */}
@@ -127,7 +127,7 @@ const PartnerPopover: React.FC = () => {
           {/* CTA Button */}
           <button
             onClick={handleCTAClick}
-            className="w-full bg-brand-primary text-brand-secondary font-semibold py-2 md:py-2.5 px-3 md:px-4 rounded-md hover:bg-brand-accent transition-colors duration-200 text-xs md:text-sm shadow-sm"
+            className="w-full bg-brand-primary font-semibold py-2 md:py-2.5 px-3 md:px-4 rounded-md hover:bg-brand-accent transition-colors duration-200 text-xs md:text-sm shadow-sm text-white cursor-pointer"
           >
             Click here to get started
           </button>

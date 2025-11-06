@@ -7,19 +7,19 @@ import useScrollToAnchor from "@/hooks/useScrollToAnchor";
 const nigerianTestimonials = [
   {
     id: 1,
-    name: "Adebayo Ogundimu",
+    name: "Gloria Omofoye",
     program: "Full Stack Web Development",
     quote:
       "The training was incredibly comprehensive and practical. I went from knowing nothing about coding to landing my first developer job in just 6 months. The mentorship and support were exceptional.",
-    initials: "AO",
+    initials: "GO",
   },
   {
     id: 2,
-    name: "Chioma Nwosu",
+    name: "Oluwanifemi Akintunde",
     program: "Data Science & Analytics",
     quote:
       "Best Technologies Ltd transformed my career completely. The hands-on projects and real-world applications gave me the confidence to transition from banking to tech. I'm now a Data Analyst at a top fintech company.",
-    initials: "CN",
+    initials: "OA",
   },
 ];
 

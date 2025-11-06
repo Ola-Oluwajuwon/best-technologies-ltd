@@ -78,7 +78,7 @@ const NewLandingPageHero = () => {
         <div className="flex flex-col sm:flex-row gap-4 sm:gap-6 justify-center items-center mb-8 sm:mb-12 px-4 sm:px-0">
           <Link
             href="#get-in-touch-form"
-            className="group bg-gradient-to-r from-brand-primary to-brand-accent hover:from-brand-accent hover:to-brand-primary font-semibold px-6 sm:px-10 py-3 sm:py-[12px] text-sm sm:text-base rounded-xl transition-all duration-300 transform hover:scale-105 flex items-center gap-2 sm:gap-3 shadow-lg hover:shadow-brand-primary/25 focus:outline-none focus:ring-2 focus:ring-brand-primary w-full sm:w-auto justify-center"
+            className="group bg-gradient-to-r from-brand-primary to-brand-accent hover:from-brand-accent hover:to-brand-primary font-semibold px-6 sm:px-10 py-3 sm:py-[12px] text-sm sm:text-base rounded-xl transition-all duration-300 transform hover:scale-105 flex items-center gap-2 sm:gap-3 shadow-lg hover:shadow-brand-primary/25 focus:outline-none focus:ring-2 focus:ring-brand-primary w-full sm:w-auto justify-center text-white"
             onClick={(e) => {
               e.preventDefault();
               const element = document.getElementById("get-in-touch-form");
