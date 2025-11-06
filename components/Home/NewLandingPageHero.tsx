@@ -39,14 +39,14 @@ const NewLandingPageHero = () => {
 
       <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
         <div className="mb-6 sm:mb-8 mt-6 sm:mt-10">
-          <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4 sm:mb-6 leading-tight bg-gradient-to-r from-brand-accent via-brand-primary to-white bg-clip-text text-transparent">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4 sm:mb-6 leading-tight bg-gradient-to-r from-brand-accent via-brand-primary to-white bg-clip-text text-transparent pb-1">
             Transform Your
-            <span className="block text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4 sm:mb-6 bg-gradient-to-r from-white via-brand-primary to-brand-accent bg-clip-text text-transparent">
+            <span className="block text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4 sm:mb-6 bg-gradient-to-r from-white via-brand-primary to-brand-accent bg-clip-text text-transparent pb-1">
               Digital Future
             </span>
           </h2>
 
-          <p className="text-sm sm:text-base md:text-lg lg:text-xl text-neutral-300 max-w-2xl mx-auto leading-relaxed px-4 sm:px-0">
+          <p className="text-sm sm:text-base md:text-lg lg:text-xl text-neutral-300 max-w-2xl mx-auto -mt-6 leading-relaxed px-4 sm:px-0">
             Join thousands of forward-thinking companies who have already
             revolutionized their digital presence with our cutting-edge
             platform.
