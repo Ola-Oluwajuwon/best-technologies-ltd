@@ -17,7 +17,7 @@ import {
 import Link from "next/link";
 import Image from "next/image";
 
-const portfolioProjects = [
+const webProjects = [
   {
     id: 1,
     title: "Learning Management System",
@@ -72,26 +72,102 @@ const portfolioProjects = [
     link: "",
     category: "Management",
   },
-  // {
-  //   id: 7,
-  //   title: "Accessible Publishers",
-  //   description:
-  //     "A platform for promoting and distributing accessible literature.",
-  //   image: "/portfolio/portfolio-06.png",
-  //   link: "https://example-logistics.com",
-  //   category: "Web Development",
-  //   tech: ["PHP", "JavaScript", "MongoDB"],
-  // },
-  // {
-  //   id: 8,
-  //   title: "Restaurant Management",
-  //   description:
-  //     "Complete restaurant operations system with ordering and inventory management",
-  //   image: "/portfolio/portfolio-07.png",
-  //   link: "https://example-restaurant.com",
-  //   category: "Hospitality",
-  //   tech: ["React Native", "Firebase", "Stripe"],
-  // },
+];
+
+const mobileProjects = [
+  {
+    id: 11,
+    title: "Fitness Tracking Mobile App",
+    description:
+      "Comprehensive fitness companion that tracks workouts, monitors nutrition, and provides personalized training plans. Features real-time progress tracking, social challenges, and integration with wearable devices.",
+    image: "/portfolio/portfolio-11.jpg",
+    link: "",
+    category: "Health & Fitness",
+  },
+  {
+    id: 12,
+    title: "E-Commerce Shopping App",
+    description:
+      "Seamless mobile shopping experience with advanced product discovery, secure payments, and real-time order tracking. Features personalized recommendations, wishlist management, and one-tap checkout.",
+    image: "/portfolio/portfolio-12.jpg",
+    link: "",
+    category: "E-Commerce",
+  },
+  {
+    id: 13,
+    title: "Food Delivery Application",
+    description:
+      "On-demand food ordering platform connecting users with local restaurants. Features live order tracking, customized meal preferences, scheduled deliveries, and loyalty rewards program.",
+    image: "/portfolio/portfolio-13.jpg",
+    link: "",
+    category: "Food & Delivery",
+  },
+  {
+    id: 14,
+    title: "Travel & Booking App",
+    description:
+      "All-in-one travel companion for booking flights, hotels, and experiences. Features interactive maps, travel itineraries, offline access, and instant booking confirmations with best price guarantees.",
+    image: "/portfolio/portfolio-14.jpg",
+    link: "",
+    category: "Travel",
+  },
+  {
+    id: 15,
+    title: "Banking & Finance App",
+    description:
+      "Secure mobile banking solution with instant transfers, bill payments, and investment tracking. Features biometric authentication, spending analytics, budget planning, and 24/7 customer support.",
+    image: "/portfolio/portfolio-15.jpg",
+    link: "",
+    category: "FinTech",
+  },
+];
+
+const marketingProjects = [
+  {
+    id: 20,
+    title: "Brand Identity Campaign",
+    description:
+      "Comprehensive brand refresh including logo design, visual identity system, and brand guidelines. Delivered cohesive brand presence across digital and print media with measurable brand recognition increase.",
+    image: "/portfolio/portfolio-20.jpg",
+    link: "",
+    category: "Brand Design",
+  },
+  {
+    id: 21,
+    title: "Social Media Marketing Suite",
+    description:
+      "Multi-platform social media campaign with content calendar, engagement strategies, and performance analytics. Achieved significant follower growth and improved audience engagement metrics.",
+    image: "/portfolio/portfolio-21.jpg",
+    link: "",
+    category: "Social Media",
+  },
+  {
+    id: 22,
+    title: "Product Launch Campaign",
+    description:
+      "Integrated marketing strategy for new product introduction including teaser campaigns, influencer partnerships, and launch events. Generated impressive pre-launch buzz and day-one conversions.",
+    image: "/portfolio/portfolio-22.jpg",
+    link: "",
+    category: "Product Marketing",
+  },
+  {
+    id: 23,
+    title: "Email Marketing Automation",
+    description:
+      "Sophisticated email campaign system with personalized content, A/B testing, and conversion optimization. Delivered improved open rates, click-through rates, and customer retention.",
+    image: "/portfolio/portfolio-23.jpg",
+    link: "",
+    category: "Email Marketing",
+  },
+  {
+    id: 24,
+    title: "Content Marketing Strategy",
+    description:
+      "Strategic content creation and distribution plan including blog posts, videos, infographics, and whitepapers. Enhanced SEO rankings, organic traffic growth, and thought leadership positioning.",
+    image: "/portfolio/portfolio-24.jpg",
+    link: "",
+    category: "Content Strategy",
+  },
 ];
 
 const FeatureCard = ({
@@ -209,6 +285,16 @@ const MarqueeItemCard = ({
 
 export default function HomepagePortfolioSection() {
   const [isMarqueePaused, setIsMarqueePaused] = useState(false);
+  const [activeTab, setActiveTab] = useState<"web" | "mobile" | "marketing">(
+    "web"
+  );
+
+  const portfolioProjects =
+    activeTab === "web"
+      ? webProjects
+      : activeTab === "mobile"
+      ? mobileProjects
+      : marketingProjects;
 
   const topFeatures = [
     {
@@ -324,13 +410,51 @@ export default function HomepagePortfolioSection() {
         </div>
         {/* Portfolio Showcase */}
         <div className="relative mb-8 md:mb-12">
-          <div className="flex items-center justify-between mb-6">
-            <h3 className="text-xl md:text-2xl font-bold text-white">
-              Portfolio Showcase
-            </h3>
-            <div className="flex items-center gap-2 text-sm text-gray-400">
-              <ExternalLink className="w-4 h-4" />
-              <span>Click to visit</span>
+          <div className="flex flex-col md:flex-row items-start md:items-center justify-between mb-6 gap-4">
+            <div className="flex items-center gap-3">
+              <h3 className="text-xl md:text-2xl font-bold text-white">
+                Portfolio Showcase
+              </h3>
+              <div className="hidden md:flex items-center gap-2 text-sm text-gray-400">
+                <ExternalLink className="w-4 h-4" />
+                <span>Click to visit</span>
+              </div>
+            </div>
+
+            {/* Tabs */}
+            <div className="flex gap-2 bg-gray-800/60 backdrop-blur-sm p-1.5 rounded-xl border border-gray-700/50">
+              <button
+                onClick={() => setActiveTab("web")}
+                className={`px-4 md:px-6 py-2 rounded-lg font-medium text-sm md:text-base transition-all duration-300 cursor-pointer ${
+                  activeTab === "web"
+                    ? "bg-brand-primary text-white shadow-lg shadow-brand-primary/20"
+                    : "text-gray-400 hover:text-white hover:bg-gray-700/50"
+                }`}
+              >
+                <span className="md:hidden">Web</span>
+                <span className="hidden md:inline">Web Projects</span>
+              </button>
+              <button
+                onClick={() => setActiveTab("mobile")}
+                className={`px-4 md:px-6 py-2 rounded-lg font-medium text-sm md:text-base transition-all duration-300 cursor-pointer ${
+                  activeTab === "mobile"
+                    ? "bg-brand-primary text-white shadow-lg shadow-brand-primary/20"
+                    : "text-gray-400 hover:text-white hover:bg-gray-700/50"
+                }`}
+              >
+                <span className="md:hidden">Mobile</span>
+                <span className="hidden md:inline">Mobile Apps</span>
+              </button>
+              <button
+                onClick={() => setActiveTab("marketing")}
+                className={`px-4 md:px-6 py-2 rounded-lg font-medium text-sm md:text-base transition-all duration-300 cursor-pointer ${
+                  activeTab === "marketing"
+                    ? "bg-brand-primary text-white shadow-lg shadow-brand-primary/20"
+                    : "text-gray-400 hover:text-white hover:bg-gray-700/50"
+                }`}
+              >
+                Marketing
+              </button>
             </div>
           </div>
 
