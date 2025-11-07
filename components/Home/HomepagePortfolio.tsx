@@ -20,12 +20,12 @@ import Image from "next/image";
 const webProjects = [
   {
     id: 1,
-    title: "Learning Management System",
+    title: "A.A. Rano",
     description:
-      "Interactive online education platform with video streaming, assessments, and course management. Delivers engaging content with automated grading, discussion forums, and personalized learning paths.",
+      "A.A. Rano is a Nigerian Indigenous Oil and Gas Company that Commenced the business of Marketing and distribution of Petroleum Products in 1994, with its headquarter in Kano, Nigeria.",
     image: "/portfolio/portfolio-01.png",
-    link: "",
-    category: "Education",
+    link: "https://aaranonigeria.com",
+    category: "Oil & Gas",
   },
   {
     id: 2,
@@ -38,12 +38,12 @@ const webProjects = [
   },
   {
     id: 3,
-    title: "Oxygen FM website",
+    title: "SellOff Ng",
     description:
-      "Seamless radio streaming platform featuring live broadcasts, podcast archives, and presenter profiles. Offers high-quality audio, interactive engagement tools, and on-demand content access.",
+      "Buy or sell anything in Nigeria without worrying about scams. Selloff.ng is fast, easy, and extremely secure. Our Escrow service protects you every step of the way.",
     image: "/portfolio/portfolio-07.png",
-    link: "",
-    category: "Media",
+    link: "https://selloff.ng/",
+    category: "E-commerce",
   },
   {
     id: 4,
@@ -52,7 +52,7 @@ const webProjects = [
       "Innovative marketplace combining e-commerce with a powerful referral system. Features secure payments, real-time inventory tracking, and an affiliate dashboard for earnings management.",
     image: "/portfolio/portfolio-04.png",
     link: "https://accessseller.com",
-    category: "Ecommerce",
+    category: "E-commerce",
   },
   {
     id: 5,
@@ -65,37 +65,37 @@ const webProjects = [
   },
   {
     id: 6,
-    title: "Staff Management System for Enterprise",
+    title: "Euphoria Cakes London",
     description:
-      "Comprehensive HR solution for employee onboarding, attendance tracking, and performance reviews. Features role-based access, automated workflows, analytics, and enterprise system integration.",
+      "Euphoria Cakes London is a bespoke cake shop specializing in custom cakes for all occasions. Our website showcases our portfolio, allows online ordering, and provides a seamless user experience.",
     image: "/portfolio/portfolio-03.png",
-    link: "",
-    category: "Management",
+    link: "https://euphoriacakes.co.uk/",
+    category: "Food & Delivery",
   },
 ];
 
 const mobileProjects = [
   {
     id: 11,
-    title: "Fitness Tracking Mobile App",
+    title: "SurveyPlus",
     description:
-      "Comprehensive fitness companion that tracks workouts, monitors nutrition, and provides personalized training plans. Features real-time progress tracking, social challenges, and integration with wearable devices.",
+      "SurveyPlus is an established survey company that helps corporate organisations and individual researchers conduct and organise surveys. Their objective is to have an easy-to-use platform where researchers can create and send surveys to the right set of respondents in a timely, secure, and cost-effective manner.",
     image: "/portfolio/portfolio-11.jpg",
     link: "",
     category: "Health & Fitness",
   },
   {
     id: 12,
-    title: "E-Commerce Shopping App",
+    title: "Foodruns",
     description:
-      "Seamless mobile shopping experience with advanced product discovery, secure payments, and real-time order tracking. Features personalized recommendations, wishlist management, and one-tap checkout.",
+      "Foodruns app lets you order food and drinks from your favourite restaurant & canteen food in Ibadan.",
     image: "/portfolio/portfolio-12.jpg",
     link: "",
-    category: "E-Commerce",
+    category: "Food & Delivery",
   },
   {
     id: 13,
-    title: "Food Delivery Application",
+    title: "Byt Food Delivery App",
     description:
       "On-demand food ordering platform connecting users with local restaurants. Features live order tracking, customized meal preferences, scheduled deliveries, and loyalty rewards program.",
     image: "/portfolio/portfolio-13.jpg",
@@ -104,55 +104,55 @@ const mobileProjects = [
   },
   {
     id: 14,
-    title: "Travel & Booking App",
+    title: "Exkada Express Okada",
     description:
-      "All-in-one travel companion for booking flights, hotels, and experiences. Features interactive maps, travel itineraries, offline access, and instant booking confirmations with best price guarantees.",
+      "Okada booking app that allows users to easily book motorcycle for quick and efficient transportation. Features real-time driver tracking, secure payments, and ride history.",
     image: "/portfolio/portfolio-14.jpg",
     link: "",
     category: "Travel",
   },
   {
     id: 15,
-    title: "Banking & Finance App",
+    title: "Stropay",
     description:
-      "Secure mobile banking solution with instant transfers, bill payments, and investment tracking. Features biometric authentication, spending analytics, budget planning, and 24/7 customer support.",
+      "StroPay.me is a Cryptocurrency Exchanger in Africa with branches in Ghana, Nigeria and Ivory Coast. Over the years we have developed mutual relationship with international partners to ensure constant availability of Cryptocurrencies at a good rate.",
     image: "/portfolio/portfolio-15.jpg",
     link: "",
-    category: "FinTech",
+    category: "Web3",
   },
 ];
 
 const marketingProjects = [
   {
     id: 20,
-    title: "Brand Identity Campaign",
+    title: "Wax and Wraps",
     description:
-      "Comprehensive brand refresh including logo design, visual identity system, and brand guidelines. Delivered cohesive brand presence across digital and print media with measurable brand recognition increase.",
+      "Facebook ads for a monthly/bi-monthly subscription box containing African wax and wraps.",
     image: "/portfolio/portfolio-20.jpg",
     link: "",
-    category: "Brand Design",
+    category: "Brand Marketing",
   },
   {
     id: 21,
-    title: "Social Media Marketing Suite",
+    title: "Ammani Farms Katsina",
     description:
-      "Multi-platform social media campaign with content calendar, engagement strategies, and performance analytics. Achieved significant follower growth and improved audience engagement metrics.",
+      "Digital marketing campaign for an agricultural company in Katsina State, Nigeria.",
     image: "/portfolio/portfolio-21.jpg",
     link: "",
-    category: "Social Media",
+    category: "Digital Marketing",
   },
   {
     id: 22,
-    title: "Product Launch Campaign",
+    title: "Nigeria International Book Fair 2025",
     description:
-      "Integrated marketing strategy for new product introduction including teaser campaigns, influencer partnerships, and launch events. Generated impressive pre-launch buzz and day-one conversions.",
+      "Content Revamp of website and digital marketing for NIBF in preparation for the 2025 event.",
     image: "/portfolio/portfolio-22.jpg",
     link: "",
-    category: "Product Marketing",
+    category: "Digital Marketing",
   },
   {
     id: 23,
-    title: "Email Marketing Automation",
+    title: "ReproNig",
     description:
       "Sophisticated email campaign system with personalized content, A/B testing, and conversion optimization. Delivered improved open rates, click-through rates, and customer retention.",
     image: "/portfolio/portfolio-23.jpg",
@@ -161,12 +161,12 @@ const marketingProjects = [
   },
   {
     id: 24,
-    title: "Content Marketing Strategy",
+    title: "CollaboBet’s Digital Marketing Services",
     description:
-      "Strategic content creation and distribution plan including blog posts, videos, infographics, and whitepapers. Enhanced SEO rankings, organic traffic growth, and thought leadership positioning.",
+      "Social media management and Google display ads set up for a betting platform in Nigeria.",
     image: "/portfolio/portfolio-24.jpg",
     link: "",
-    category: "Content Strategy",
+    category: "Digital Marketing",
   },
 ];
 
